@@ -8,7 +8,7 @@ RUN \
     apt-get update && \
     apt-get install -y wget php5-gd && \
     rm -rf /var/lib/apt/lists/* && \
-    wget https://github.com/RandomStorm/DVWA/archive/master.tar.gz -O dvwa.tar.gz && \
+    wget https://github.com/ethicalhack3r/DVWA/archive/v1.9.zip -O dvwa.tar.gz && \
     tar -xf dvwa.tar.gz && \
     cp -r DVWA-master/* /app/ && \
     rm -rf DVWA-master && \
