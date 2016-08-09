@@ -6,13 +6,12 @@ MAINTAINER Rafael <rafael@thestorm.com.br>)
 RUN \
     rm -rf /app/* && \
     apt-get update && \
-    apt-get install -y wget php5-gd && \
+    apt-get install -y wget php5-gd unzip && \
     rm -rf /var/lib/apt/lists/* && \
-    wget https://github.com/ethicalhack3r/DVWA/archive/v1.9.zip -O dvwa.tar.gz && \
-    tar -xf dvwa.tar.gz && \
-    cp -r DVWA-master/* /app/ && \
-    rm -rf DVWA-master && \
-    rm -rf dvwa.tar.gz
+    wget https://github.com/ethicalhack3r/DVWA/archive/v1.9.zip -O dvwa.zip && \
+    unzip dvwa.zip && \
+    cp -r DVWA-1.9/* /app/ && \
+    rm -rf DVWA-1.9 dvwa.zip
 
 # Fix some issues about default lamp installation
 RUN \
