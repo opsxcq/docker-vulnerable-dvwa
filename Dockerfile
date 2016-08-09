@@ -17,8 +17,8 @@ RUN \
 RUN \
     chmod -R 777 /app/hackable/uploads/ /app/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt && \
     sed -i 's/allow_url_include = Off/allow_url_include = On/g' /etc/php5/apache2/php.ini && \
-    sed -i "s/$_DVWA[ 'recaptcha_private_key' ] = ''/$_DVWA[ 'recaptcha_private_key' ] = '6LcdSCQTAAAAAGYfl1nYDeK8Dt_Art60KRIMgLXb'/g" /app/config/config.inc.php && \
-    sed -i "s/$_DVWA[ 'recaptcha_public_key' ] = ''/$_DVWA[ 'recaptcha_public_key' ] = '6LcdSCQTAAAAAGYfl1nYDeK8Dt_Art60KRIMgLXb'/g" /app/config/config.inc.php
+    sed -i "s/$_DVWA[ 'recaptcha_private_key' ] = ''/$_DVWA[ 'recaptcha_private_key' ] = '6LdNNycTAAAAAGuxxzwzwVC6FPJmdNqNPqdfMoim'/g" /app/config/config.inc.php && \
+    sed -i "s/$_DVWA[ 'recaptcha_public_key' ] = ''/$_DVWA[ 'recaptcha_public_key' ] = '6LdNNycTAAAAANH2R31pX_dcQ5V02Og2MyV1ylTX'/g" /app/config/config.inc.php
 
 # Configure the db access
 RUN \
