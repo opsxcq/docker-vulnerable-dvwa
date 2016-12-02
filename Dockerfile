@@ -1,30 +1,20 @@
-FROM tutum/lamp:latest
+FROM debian:jessie
 
-MAINTAINER Rafael <rafael@thestorm.com.br>)
+MAINTAINER opsxcq <opsxcq@thestorm.com.br>
 
-# Install DVWA
-RUN \
-    rm -rf /app/* && \
-    apt-get update && \
-    apt-get install -y wget php5-gd unzip && \
-    rm -rf /var/lib/apt/lists/* && \
-    wget https://github.com/ethicalhack3r/DVWA/archive/v1.9.zip -O dvwa.zip && \
-    unzip dvwa.zip && \
-    cp -r DVWA-1.9/* /app/ && \
-    rm -rf DVWA-1.9 dvwa.zip
+RUN apt-get update && \
+    apt-get upgrapde -y && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    package1 \
+    package2 && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-# Fix some issues about default lamp installation
-RUN \
-    chmod -R 777 /app/hackable/uploads/ /app/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt && \
-    sed -i 's/allow_url_include = Off/allow_url_include = On/g' /etc/php5/apache2/php.ini && \
-    sed -i "s/$_DVWA[ 'recaptcha_private_key' ] = ''/$_DVWA[ 'recaptcha_private_key' ] = '6LdNNycTAAAAAGuxxzwzwVC6FPJmdNqNPqdfMoim'/g" /app/config/config.inc.php && \
-    sed -i "s/$_DVWA[ 'recaptcha_public_key' ] = ''/$_DVWA[ 'recaptcha_public_key' ] = '6LdNNycTAAAAANH2R31pX_dcQ5V02Og2MyV1ylTX'/g" /app/config/config.inc.php
+RUN useradd --system --uid 666 -M --shell /usr/sbin/nologin vulnerable
 
-# Configure the db access
-RUN \
-    sed -i 's/root/admin/g' /app/config/config.inc.php && \
-    echo "sed -i \"s/p@ssw0rd/\$PASS/g\" /app/config/config.inc.php" >> /create_mysql_admin_user.sh
+USER vulnerable
 
-EXPOSE 80 3306
-CMD ["/run.sh"]
+EXPOSE 80
 
+VOLUME /data
+WORKDIR /data
