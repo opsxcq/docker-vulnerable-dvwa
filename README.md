@@ -16,7 +16,7 @@ And wait until it download the image and start it, after that you can see the im
 
 ![setup](setup.png)
 
-Just click in 
+Just click on the ```Create / Reset database``` button and it will generate any aditional configuration needed.
 
 ## Credentials
 
