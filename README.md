@@ -26,7 +26,9 @@ The default dificulty level is the ```impossible``` level, you can change it in 
 
 ![dificulty](setup-dificulty.png)
 
-## Credentials
+## Login with default credentials
+
+To login you can use the following credentials:
 
   * Username: admin
   * Password: password
