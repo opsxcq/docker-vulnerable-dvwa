@@ -4,6 +4,16 @@ Damn Vulnerable Web Application (DVWA) is a PHP/MySQL web application that is da
 
 The aim of DVWA is to practice some of the most common web vulnerability, with various difficultly levels, with a simple straightforward interface. Please note, there are both documented and undocumented vulnerability with this software. This is intentional. You are encouraged to try and discover as many issues as possible.
 
+## Run this image
+
+To run this image you need [docker](http://docker.com) installed. Just run the command:
+
+    docker run --rm -it -p 80:80 vulnerables/dvwa
+
+And wait until it download the image and start it, after that you can see the image running in your local machine:
+
+![setup](setup.png)
+
 ## Credentials
 
   * Username: admin
