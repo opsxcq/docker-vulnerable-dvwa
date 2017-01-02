@@ -20,18 +20,18 @@ And wait until it download the image and start it, after that you can see the im
 
 Just click on the ```Create / Reset database``` button and it will generate any aditional configuration needed.
 
-## Set the dificulty level
-
-The default dificulty level is the ```impossible``` level, you can change it in ```DVWA Security``` item in the left menu.
-
-![dificulty](setup-dificulty.png)
-
 ## Login with default credentials
 
 To login you can use the following credentials:
 
   * Username: admin
   * Password: password
+
+## Set the dificulty level
+
+The default dificulty level is the ```impossible``` level, you can change it in ```DVWA Security``` item in the left menu.
+
+![dificulty](setup-dificulty.png)
 
 ## Hack and have fun !
 
