@@ -15,6 +15,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+COPY php.ini /etc/php5/apache2/php.ini
 COPY dvwa /var/www/html
 
 RUN chown www-data:www-data -R /var/www/html && \
