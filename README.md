@@ -26,3 +26,5 @@ Just click in
 You can visit DVWA [official website](http://www.dvwa.co.uk/) and official [github repository](https://github.com/ethicalhack3r/DVWA) if you want more information
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/vulnerables/web-dvwa.svg?style=plastic)](https://hub.docker.com/r/vulnerables/web-dvwa/)
+
+![License](https://img.shields.io/badge/License-GPL-blue.svg?style=plastic)
