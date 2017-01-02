@@ -33,6 +33,15 @@ To login you can use the following credentials:
   * Username: admin
   * Password: password
 
+## Hack and have fun !
+
+If you are playing it in low dificulty, just to have a taste of how exploit a flaw in this app, go to ```SQL Injection``` in the left menu.
+In the id field, add this query ```%' and 1=0 union select null, concat(first_name,'|',last_name,'|',user,'|',password) from users #```
+
+![sqli](sqli.png)
+
+There are several other ways and other vulnerabilities do exploit, go ahead, have fun !
+
 ## About DVWA
 
 You can visit DVWA [official website](http://www.dvwa.co.uk/) and official [github repository](https://github.com/ethicalhack3r/DVWA) if you want more information
