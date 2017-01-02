@@ -15,7 +15,7 @@ $_DVWA = array();
 $_DVWA[ 'db_server' ]   = '127.0.0.1';
 $_DVWA[ 'db_database' ] = 'dvwa';
 $_DVWA[ 'db_user' ]     = 'root';
-$_DVWA[ 'db_password' ] = 'p@ssw0rd';
+$_DVWA[ 'db_password' ] = 'vulnerables';
 
 # Only used with PostgreSQL/PGSQL database selection.
 $_DVWA[ 'db_port '] = '5432';
@@ -23,8 +23,9 @@ $_DVWA[ 'db_port '] = '5432';
 # ReCAPTCHA settings
 #   Used for the 'Insecure CAPTCHA' module
 #   You'll need to generate your own keys at: https://www.google.com/recaptcha/admin/create
-$_DVWA[ 'recaptcha_public_key' ]  = '';
-$_DVWA[ 'recaptcha_private_key' ] = '';
+# Thanks to http://stackoverflow.com/questions/34274492/dvwa-setup-php-function-allow-url-include-disabled
+$_DVWA[ 'recaptcha_public_key' ]  = '6LdK7xITAAzzAAJQTfL7fu6I-0aPl8KHHieAT_yJg';
+$_DVWA[ 'recaptcha_private_key' ] = '6LdK7xITAzzAAL_uw9YXVUOPoIHPZLfw2K1n5NVQ';
 
 # Default security level
 #   Default value for the secuirty level with each session.
