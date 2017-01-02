@@ -5,16 +5,22 @@ MAINTAINER opsxcq <opsxcq@thestorm.com.br>
 RUN apt-get update && \
     apt-get upgrapde -y && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    package1 \
-    package2 && \
+    apache2 \
+    mysql-server \
+    php5 \
+    php5-mysql \
+    php-pear \
+    php5-gd \
+    && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN useradd --system --uid 666 -M --shell /usr/sbin/nologin vulnerable
+COPY dvwa /var/www/html
 
-USER vulnerable
+RUN chown www-data:www-data -R /var/www/html && \
+    rm /var/www/html/index.html
 
 EXPOSE 80
 
-VOLUME /data
-WORKDIR /data
+COPY main.sh /
+ENTRYPOINT ["/main.sh"]
