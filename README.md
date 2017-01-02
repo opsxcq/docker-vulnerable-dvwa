@@ -46,7 +46,7 @@ There are several other ways and other vulnerabilities do exploit, go ahead, hav
 
 ## About DVWA
 
-You can visit DVWA [official website](http://www.dvwa.co.uk/) and official [github repository](https://github.com/ethicalhack3r/DVWA) if you want more information
+You can visit DVWA [official website](http://www.dvwa.co.uk/) and official [github repository](https://github.com/ethicalhack3r/DVWA) if you want more information.
 
 ## Disclaimer
 
