@@ -16,7 +16,7 @@ To run this image you need [docker](http://docker.com) installed. Just run the c
 
 And wait until it download the image and start it, after that you can see the image running in your local machine:
 
-![setup](setup.png)
+![setup](https://github.com/opsxcq/docker-vulnerable-dvwa/blob/master/setup.png?raw=tru)
 
 Just click on the ```Create / Reset database``` button and it will generate any aditional configuration needed.
 
@@ -31,7 +31,7 @@ To login you can use the following credentials:
 
 The default dificulty level is the ```impossible``` level, you can change it in ```DVWA Security``` item in the left menu.
 
-![dificulty](setup-dificulty.png)
+![dificulty](https://github.com/opsxcq/docker-vulnerable-dvwa/blob/master/setup-dificulty.png?raw=tru)
 
 ## Hack and have fun !
 
