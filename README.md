@@ -11,4 +11,4 @@ The aim of DVWA is to practice some of the most common web vulnerability, with v
 
 ## About DVWA
 
-You can visit DVWA official website [here](http://www.dvwa.co.uk/)
+You can visit DVWA [official website](http://www.dvwa.co.uk/) and official [github repository](https://github.com/ethicalhack3r/DVWA) if you want more information
