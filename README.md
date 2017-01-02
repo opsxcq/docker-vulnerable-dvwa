@@ -36,7 +36,9 @@ To login you can use the following credentials:
 ## Hack and have fun !
 
 If you are playing it in low dificulty, just to have a taste of how exploit a flaw in this app, go to ```SQL Injection``` in the left menu.
-In the id field, add this query ```%' and 1=0 union select null, concat(first_name,'|',last_name,'|',user,'|',password) from users #```
+In the id field, add this query: 
+
+	%' and 1=0 union select null, concat(user,':',password) from users #
 
 ![sqli](sqli.png)
 
