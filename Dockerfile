@@ -3,7 +3,7 @@ FROM debian:jessie
 MAINTAINER opsxcq <opsxcq@thestorm.com.br>
 
 RUN apt-get update && \
-    apt-get upgrapde -y && \
+    apt-get upgrade -y && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     apache2 \
     mysql-server \
