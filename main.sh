@@ -1,5 +1,7 @@
 #!/bin/bash
 
+chown -R mysql:mysql /var/lib/mysql
+
 echo '[+] Starting mysql...'
 service mysql start
 
