@@ -10,15 +10,24 @@ The aim of DVWA is to practice some of the most common web vulnerability, with v
 
 ## Run this image
 
-To run this image you need [docker](http://docker.com) installed. Just run the command:
+To run this image you need [docker](http://docker.com) 17.09CE and [docker-compose](https://docs.docker.com/compose/install/) installed. Just run the command:
 
-    docker run --rm -it -p 80:80 vulnerables/web-dvwa
+    docker-compose up --build
 
 And wait until it download the image and start it, after that you can see the image running in your local machine:
 
-![setup](https://github.com/opsxcq/docker-vulnerable-dvwa/blob/master/setup.png?raw=tru)
+![setup](https://github.com/opsxcq/docker-vulnerable-dvwa/blob/master/img/setup.png?raw=tru)
 
 Just click on the ```Create / Reset database``` button and it will generate any aditional configuration needed.
+
+To stop the stack, run:
+
+    docker-compose down
+
+If you stop the containers unexpectedly (e.g., `Ctrl-C`) and you find Apache refusing to start, rebuild or run:
+
+    docker-compose rm
+    docker-compose up
 
 ## Login with default credentials
 
@@ -31,7 +40,7 @@ To login you can use the following credentials:
 
 The default dificulty level is the ```impossible``` level, you can change it in ```DVWA Security``` item in the left menu.
 
-![dificulty](https://github.com/opsxcq/docker-vulnerable-dvwa/blob/master/setup-dificulty.png?raw=tru)
+![dificulty](https://github.com/opsxcq/docker-vulnerable-dvwa/blob/master/img/setup-dificulty.png?raw=tru)
 
 ## Hack and have fun !
 
@@ -40,7 +49,7 @@ In the id field, add this query:
 
 	%' and 1=0 union select null, concat(user,':',password) from users #
 
-![sqli](https://github.com/opsxcq/docker-vulnerable-dvwa/blob/master/sqli.png?raw=true)
+![sqli](https://github.com/opsxcq/docker-vulnerable-dvwa/blob/master/img/sqli.png?raw=true)
 
 There are several other ways and other vulnerabilities do exploit, go ahead, have fun !
 

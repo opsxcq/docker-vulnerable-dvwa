@@ -1,0 +1,21 @@
+version: '3'
+services:
+
+  dvwa:
+    build:
+      context: .
+    ports:
+      - 80:80
+    volumes:
+      - ./dvwa:/var/www/html
+
+  dvwa_db:
+    image: library/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: vulnerables
+      MYSQL_DATABASE: dvwa
+      MYSQL_USER: dvwa_db_user
+      MYSQL_PASSWORD: changeme
+    volumes:
+      - ./mysql:/var/lib/mysql
+
