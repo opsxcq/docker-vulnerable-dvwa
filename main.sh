@@ -1,5 +1,7 @@
 #!/bin/bash
 
+find /var/lib/mysql -type f -exec touch {} \;
+
 echo '[+] Starting mysql...'
 service mysql start
 
