@@ -1,3 +1,18 @@
+# ****** Warning  ******
+This readme is for the original Dockerfile, if you want to use this, until the Pull Request is approved and the container is updated, you have to download the code and execute the following commands
+
+To generate the container
+
+    docker build -t dvwa .
+
+To use it
+
+    docker run --rm -it -p 80:80 dvwa
+
+Enjoy ;)
+
+# ****** End Warning  ******
+
 # Damn Vulnerable Web Application Docker container
 [![Docker Pulls](https://img.shields.io/docker/pulls/vulnerables/web-dvwa.svg?style=plastic)](https://hub.docker.com/r/vulnerables/web-dvwa/)
 ![License](https://img.shields.io/badge/License-GPL-blue.svg?style=plastic)
