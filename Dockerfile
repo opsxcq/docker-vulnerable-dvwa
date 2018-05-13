@@ -15,6 +15,8 @@ RUN apt-get update && \
     php5-mysql \
     php-pear \
     php5-gd \
+    curl \
+    vim \
     && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
