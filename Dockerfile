@@ -17,12 +17,16 @@ RUN apt-get update && \
     php5-gd \
     curl \
     vim \
+    git \
     && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+RUN git clone --depth 1 https://github.com/ethicalhack3r/DVWA.git && \ 
+    cp -r DVWA/* /var/www/html && \
+    rm -rf DVWA
+#COPY DVWA /var/www/html
 COPY php.ini /etc/php5/apache2/php.ini
-COPY dvwa /var/www/html
 
 RUN chown www-data:www-data -R /var/www/html && \
     rm /var/www/html/index.html
