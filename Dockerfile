@@ -6,11 +6,11 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     debconf-utils && \
-    echo mysql-server-5.5 mysql-server/root_password password vulnerables | debconf-set-selections && \
-    echo mysql-server-5.5 mysql-server/root_password_again password vulnerables | debconf-set-selections && \
+    echo maria-db-10.0 mysql-server/root_password password vulnerables | debconf-set-selections && \
+    echo maria-db-10.0 mysql-server/root_password_again password vulnerables | debconf-set-selections && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     apache2 \
-    mysql-server \
+    mariadb-server \
     php5 \
     php5-mysql \
     php-pear \
