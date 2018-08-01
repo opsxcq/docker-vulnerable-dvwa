@@ -1,10 +1,6 @@
 FROM polyverse/polyscripted-php-built
 RUN ./build-scrambled.sh; exit 0
 
-FROM ubuntu 
-
-LABEL maintainer "opsxcq@strm.sh"
-
 RUN apt-get update && \
     apt-get upgrade -y && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
@@ -36,11 +32,8 @@ RUN chown www-data:www-data -R /var/www/html && \
 
 COPY --from=0 /php/php-transformer ./php-transformer
 COPY --from=0 /php/scrambled.gob ./scrambled.gob
-COPY --from=0 /polyscripted-php/ ./
-COPY --from=0 /polyscripted-php/ ./polyscripted-php/
 
-RUN ./php-transformer -php5 -replace var/www
-
+RUN /php/php-transformer -php5 -replace /var/www
 
 EXPOSE 80
 
