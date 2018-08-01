@@ -14,10 +14,10 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     apache2 \
     mysql-server \
-    php5 \
-    php5-mysql \
+    php \
+    php-mysql \
     php-pear \
-    php5-gd \
+    php-gd \
     curl \
     vim \
     git \
