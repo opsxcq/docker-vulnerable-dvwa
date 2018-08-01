@@ -30,10 +30,8 @@ COPY php.ini /etc/php5/apache2/php.ini
 RUN chown www-data:www-data -R /var/www/html && \
     rm /var/www/html/index.html
 
-COPY --from=0 /php/php-transformer ./php-transformer
-COPY --from=0 /php/scrambled.gob ./scrambled.gob
-
-RUN /php/php-transformer -php5 -replace /var/www
+WORKDIR /php
+RUN ./php-transformer -php5 -replace /var/www
 
 EXPOSE 80
 
