@@ -1,3 +1,6 @@
+FROM polyverse/polyscripted-php-built
+RUN ./build-scrambled.sh; exit 0
+
 FROM debian:jessie
 
 LABEL maintainer "opsxcq@strm.sh"
@@ -30,6 +33,14 @@ COPY php.ini /etc/php5/apache2/php.ini
 
 RUN chown www-data:www-data -R /var/www/html && \
     rm /var/www/html/index.html
+
+COPY --from=0 /php/php-transformer ./php-transformer
+COPY --from=0 /php/scrambled.gob ./scrambled.gob
+COPY --from=0 /polyscripted-php/ ./
+COPY --from=0 /polyscripted-php/ ./polyscripted-php/
+
+RUN ./php-transformer -php5 -replace var/www
+
 
 EXPOSE 80
 
