@@ -41,6 +41,11 @@ echo '[+] Starting apache'
 cp /var/www/html/config/config.inc.php.dist /var/www/html/config/config.inc.php
 sed 's/.*$_DVWA.*root.*/$_DVWA[ '"'"'db_user'"'"' ]     = '"'"'dvwa'"'"';/' /var/www/html/config/config.inc.php > /var/www/html/config/config.inc.php.new
 yes | cp /var/www/html/config/config.inc.php.new /var/www/html/config/config.inc.php
+
+echo "Scrambling all php files to match the polyscripted version..."
+/usr/local/bin/scramble.sh
+
+echo "Restarting apache..."
 service apache2 start
 
 while true

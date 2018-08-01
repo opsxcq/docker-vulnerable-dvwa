@@ -32,12 +32,6 @@ COPY php.ini /etc/php5/apache2/php.ini
 RUN chown www-data:www-data -R /var/www/html && \
     rm /var/www/html/index.html
 
-RUN cp -Rp /var/www/html /var/www/html-bak
-RUN mv /var/www/html /var/www/html-ps
-RUN ln -s /var/www/html-ps /var/www/html
-WORKDIR /php
-RUN ./php-transformer -php5 -replace /var/www/html
-
 COPY scripts/* /usr/local/bin/
 
 EXPOSE 80
