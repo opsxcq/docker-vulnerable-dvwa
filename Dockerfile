@@ -21,6 +21,8 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+RUN ln -s /etc/apache2/mods-available/php7.2.conf /etc/apache2/mods-enabled
+
 RUN git clone --depth 1 https://github.com/ethicalhack3r/DVWA.git && \ 
     cp -r DVWA/* /var/www/html && \
     rm -rf DVWA
