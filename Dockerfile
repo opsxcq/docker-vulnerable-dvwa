@@ -1,7 +1,7 @@
 FROM polyverse/polyscripted-php-built
 RUN ./build-scrambled.sh; exit 0
 
-FROM polyverse/polymorphic-ubuntu-base 
+FROM debian:jessie
 
 LABEL maintainer "opsxcq@strm.sh"
 
