@@ -38,6 +38,8 @@ RUN ln -s /var/www/html-ps /var/www/html
 WORKDIR /php
 RUN ./php-transformer -php5 -replace /var/www/html
 
+COPY scripts/* /usr/local/bin
+
 EXPOSE 80
 
 COPY main.sh /
