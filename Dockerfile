@@ -1,6 +1,5 @@
-FROM debian:jessie
-
-LABEL maintainer "opsxcq@strm.sh"
+FROM polyverse/polyscripted-php-built
+RUN ./build-scrambled.sh; exit 0
 
 RUN apt-get update && \
     apt-get upgrade -y && \
@@ -11,19 +10,29 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     apache2 \
     mysql-server \
-    php5 \
-    php5-mysql \
+    php \
+    php-mysql \
     php-pear \
-    php5-gd \
+    php-gd \
+    curl \
+    vim \
+    git \
     && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+RUN ln -s /etc/apache2/mods-available/php7.2.conf /etc/apache2/mods-enabled
+
+RUN git clone --depth 1 https://github.com/ethicalhack3r/DVWA.git && \ 
+    cp -r DVWA/* /var/www/html && \
+    rm -rf DVWA
+#COPY DVWA /var/www/html
 COPY php.ini /etc/php5/apache2/php.ini
-COPY dvwa /var/www/html
 
 RUN chown www-data:www-data -R /var/www/html && \
     rm /var/www/html/index.html
+
+COPY scripts/* /usr/local/bin/
 
 EXPOSE 80
 
