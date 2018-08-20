@@ -1,3 +1,33 @@
+# Polyscripted DVWA
+
+Polyscripted DVWA is a damn vulnerable web application that has been polyscripted.
+Though the site behaves in the same way, the php beneath it is unique and has been scrambled.
+
+To set up the site:
+- docker run -p 80:80 polyverse/dvwa
+- The username is admin and the password is password
+- Click the "create database" button
+- Login again with the above credentials to access the main site
+- Go to the tab DVWA Security tab and set the security level to low
+
+To demostrate an attack vector that php stops:
+- Navigate to the file inclusion tab on the side bar
+- Upload any php document
+- Navigate to the path of the uploaded php, i.e. /hackable/uploads/payload.php 
+
+Without polyscripting this php document would have been executed. 
+
+This could lead to multiple attack vectors, and an opportunity for a malicious actor to add a backdoor into the server.
+However, on the polyscripted site, this php file will result in a syntax error.
+
+Below you will find the description for the original OWASPs Damn Vulnerable Web Application where you can try out the
+dvwa without polyscripting.
+
+To run non-polyscripted dvwa:
+- docker run -p 8080:80 citizenstig/dvwa
+- follow same process as above or read below description
+
+
 # Damn Vulnerable Web Application Docker container
 [![Docker Pulls](https://img.shields.io/docker/pulls/vulnerables/web-dvwa.svg?style=plastic)](https://hub.docker.com/r/vulnerables/web-dvwa/)
 ![License](https://img.shields.io/badge/License-GPL-blue.svg?style=plastic)
