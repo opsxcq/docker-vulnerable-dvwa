@@ -17,7 +17,7 @@ $DBMS = 'MySQL';
 $_DVWA = array();
 $_DVWA[ 'db_server' ]   = '127.0.0.1';
 $_DVWA[ 'db_database' ] = 'dvwa';
-$_DVWA[ 'db_user' ]     = 'root';
+$_DVWA[ 'db_user' ]     = 'app';
 $_DVWA[ 'db_password' ] = 'vulnerables';
 
 # Only used with PostgreSQL/PGSQL database selection.
