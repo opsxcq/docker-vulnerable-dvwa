@@ -22,6 +22,8 @@ RUN apt-get update && \
 COPY php.ini /etc/php5/apache2/php.ini
 COPY dvwa /var/www/html
 
+COPY config.inc.php /var/www/html/config/
+
 RUN chown www-data:www-data -R /var/www/html && \
     rm /var/www/html/index.html
 
