@@ -36,8 +36,8 @@ require_once DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/captcha/source/{$vulnerabi
 // Check if we have a reCAPTCHA key
 $WarningHtml = '';
 if( $_DVWA[ 'recaptcha_public_key' ] == "" ) {
-	$WarningHtml = "<div class=\"warning\"><em>reCAPTCHA API key missing</em> from config file: " . realpath( dirname( dirname( getcwd() ) ) . "/config/config.inc.php" ) . "</div>";
-	$html = "<em>Please register for a key</em> from reCAPTCHA: " . dvwaExternalLinkUrlGet('https://www.google.com/recaptcha/admin/create');
+	$WarningHtml = "<div class=\"warning\"><em>reCAPTCHA API key missing</em> from config file: " . realpath( getcwd() . DIRECTORY_SEPARATOR . DVWA_WEB_PAGE_TO_ROOT . "config" . DIRECTORY_SEPARATOR . "config.inc.php" ) . "</div>";
+	$html = "<em>Please register for a key</em> from reCAPTCHA: " . dvwaExternalLinkUrlGet( 'https://www.google.com/recaptcha/admin/create' );
 	$hide_form = true;
 }
 
@@ -87,7 +87,7 @@ $page[ 'body' ] .= "
 
 	<h2>More Information</h2>
 	<ul>
-		<li>" . dvwaExternalLinkUrlGet( 'http://www.captcha.net/' ) . "</li>
+		<li>" . dvwaExternalLinkUrlGet( 'https://en.wikipedia.org/wiki/CAPTCHA' ) . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'https://www.google.com/recaptcha/' ) . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'https://www.owasp.org/index.php/Testing_for_Captcha_(OWASP-AT-012)' ) . "</li>
 	</ul>

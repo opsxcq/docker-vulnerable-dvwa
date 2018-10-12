@@ -51,7 +51,7 @@ $page[ 'body' ] .= "
 
 	<div class=\"vulnerable_code_area\">";
 if( $vulnerabilityFile == 'high.php' ) {
-	$page[ 'body' ] .= "Click <a href=\"#\" onClick=\"javascript:popUp('session-input.php');return false;\">here to change your ID</a>.";
+	$page[ 'body' ] .= "Click <a href=\"#\" onclick=\"javascript:popUp('session-input.php');return false;\">here to change your ID</a>.";
 }
 else {
 	$page[ 'body' ] .= "
@@ -60,11 +60,8 @@ else {
 				User ID:";
 	if( $vulnerabilityFile == 'medium.php' ) {
 		$page[ 'body' ] .= "\n				<select name=\"id\">";
-		$query  = "SELECT COUNT(*) FROM users;";
-		$result = mysql_query( $query ) or die( '<pre>' . mysql_error() . '</pre>' );
-		$num    = mysql_result( $result, 0 );
-		$i      = 0;
-		while( $i < $num ) { $i++; $page[ 'body' ] .= "<option value=\"{$i}\">{$i}</option>"; }
+
+		for( $i = 1; $i < $number_of_rows + 1 ; $i++ ) { $page[ 'body' ] .= "<option value=\"{$i}\">{$i}</option>"; }
 		$page[ 'body' ] .= "</select>";
 	}
 	else

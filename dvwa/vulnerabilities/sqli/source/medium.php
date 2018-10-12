@@ -3,28 +3,29 @@
 if( isset( $_POST[ 'Submit' ] ) ) {
 	// Get input
 	$id = $_POST[ 'id' ];
-	$id = mysql_real_escape_string( $id );
 
-	// Check database
+	$id = mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $id);
+
 	$query  = "SELECT first_name, last_name FROM users WHERE user_id = $id;";
-	$result = mysql_query( $query ) or die( '<pre>' . mysql_error() . '</pre>' );
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], $query) or die( '<pre>' . mysqli_error($GLOBALS["___mysqli_ston"]) . '</pre>' );
 
 	// Get results
-	$num = mysql_numrows( $result );
-	$i   = 0;
-	while( $i < $num ) {
+	while( $row = mysqli_fetch_assoc( $result ) ) {
 		// Display values
-		$first = mysql_result( $result, $i, "first_name" );
-		$last  = mysql_result( $result, $i, "last_name" );
+		$first = $row["first_name"];
+		$last  = $row["last_name"];
 
 		// Feedback for end user
 		$html .= "<pre>ID: {$id}<br />First name: {$first}<br />Surname: {$last}</pre>";
-
-		// Increase loop count
-		$i++;
 	}
 
-	//mysql_close();
 }
 
+// This is used later on in the index.php page
+// Setting it here so we can close the database connection in here like in the rest of the source scripts
+$query  = "SELECT COUNT(*) FROM users;";
+$result = mysqli_query($GLOBALS["___mysqli_ston"],  $query ) or die( '<pre>' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . '</pre>' );
+$number_of_rows = mysqli_fetch_row( $result )[0];
+
+mysqli_close($GLOBALS["___mysqli_ston"]);
 ?>

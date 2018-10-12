@@ -10,27 +10,27 @@ if( isset( $_POST[ 'Change' ] ) ) {
 	// Get input
 	$pass_new  = $_POST[ 'password_new' ];
 	$pass_new  = stripslashes( $pass_new );
-	$pass_new  = mysql_real_escape_string( $pass_new );
+	$pass_new  = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $pass_new ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
 	$pass_new  = md5( $pass_new );
 
 	$pass_conf = $_POST[ 'password_conf' ];
 	$pass_conf = stripslashes( $pass_conf );
-	$pass_conf = mysql_real_escape_string( $pass_conf );
+	$pass_conf = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $pass_conf ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
 	$pass_conf = md5( $pass_conf );
 
 	$pass_curr = $_POST[ 'password_current' ];
 	$pass_curr = stripslashes( $pass_curr );
-	$pass_curr = mysql_real_escape_string( $pass_curr );
+	$pass_curr = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $pass_curr ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
 	$pass_curr = md5( $pass_curr );
 
 	// Check CAPTCHA from 3rd party
-	$resp = recaptcha_check_answer( $_DVWA[ 'recaptcha_private_key' ],
-		$_SERVER[ 'REMOTE_ADDR' ],
-		$_POST[ 'recaptcha_challenge_field' ],
-		$_POST[ 'recaptcha_response_field' ] );
+	$resp = recaptcha_check_answer(
+		$_DVWA[ 'recaptcha_private_key' ],
+		$_POST['g-recaptcha-response']
+	);
 
 	// Did the CAPTCHA fail?
-	if( !$resp->is_valid ) {
+	if( !$resp ) {
 		// What happens when the CAPTCHA was entered incorrectly
 		$html .= "<pre><br />The CAPTCHA was incorrect. Please try again.</pre>";
 		$hide_form = false;

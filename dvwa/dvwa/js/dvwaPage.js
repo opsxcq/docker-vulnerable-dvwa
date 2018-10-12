@@ -3,7 +3,8 @@
 function popUp(URL) {
 	day = new Date();
 	id = day.getTime();
-	eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=1,width=500,height=300,left = 540,top = 250');");
+	window.open(URL, '" + id + "', 'toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=1,width=800,height=300,left=540,top=250');
+	//eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=1,width=800,height=300,left=540,top=250');");
 }
 
 /* Form validation */
@@ -20,7 +21,7 @@ with (field) {
  }
 }
 
-function validate_form(thisform) {
+function validateGuestbookForm(thisform) {
 with (thisform) {
 
   // Guestbook form
@@ -33,3 +34,6 @@ with (thisform) {
   }
 }
 
+function confirmClearGuestbook() {
+	return confirm("Are you sure you want to clear the guestbook?");
+}
