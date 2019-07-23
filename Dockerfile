@@ -25,7 +25,7 @@ COPY dvwa /var/www/html
 COPY config.inc.php /var/www/html/config/
 
 # Open up some security holes in PHP
-RUN  /bin/bash -c "sed -i -e's/allow_url_include[[:space:]]=[[:space:]]*off/allow_url_include = On/I' /etc/php/*/apache2/php.ini"
+RUN  sed -i -e's/allow_url_include[[:space:]]=[[:space:]]*off/allow_url_include = On/I' /etc/php/*/apache2/php.ini
 
 
 RUN chown www-data:www-data -R /var/www/html && \
