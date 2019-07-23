@@ -20,10 +20,13 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-COPY php.ini /etc/php5/apache2/php.ini
 COPY dvwa /var/www/html
 
 COPY config.inc.php /var/www/html/config/
+
+# Open up some security holes in PHP
+RUN  sed -i -e's/allow_url_include[[:space:]]=[[:space:]]*off/allow_url_include = On/I' /etc/php/*/apache2/php.ini
+
 
 RUN chown www-data:www-data -R /var/www/html && \
     rm /var/www/html/index.html
