@@ -32,6 +32,8 @@ RUN service mysql start && \
     sleep 3 && \
     mysql -uroot -pvulnerables -e "CREATE USER app@localhost IDENTIFIED BY 'vulnerables';CREATE DATABASE dvwa;GRANT ALL privileges ON dvwa.* TO 'app'@localhost;"
 
+RUN sed -ri -e "s/^allow_url_include.*/allow_url_include = On/" /etc/php/7.0/apache2/php.ini && sed -ri -e "s/^allow_url_include.*/allow_url_include = On/" /etc/php/7.0/cli/php.ini
+
 EXPOSE 80
 
 COPY main.sh /
