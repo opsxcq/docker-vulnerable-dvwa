@@ -30,7 +30,7 @@ RUN chown www-data:www-data -R /var/www/html && \
 
 RUN service mysql start && \
     sleep 3 && \
-    mysql -uroot -pvulnerables -e "CREATE USER app@localhost IDENTIFIED BY 'vulnerables';CREATE DATABASE dvwa;GRANT ALL privileges ON dvwa.* TO 'app'@localhost;"
+    mysql -uroot -pvulnerables -e "CREATE USER app@localhost IDENTIFIED BY 'vulnerables';CREATE DATABASE dvwa;GRANT ALL privileges ON dvwa.* TO 'app'@localhost;GRANT FILE ON *.* TO 'app'@'localhost';"
 
 EXPOSE 80
 
