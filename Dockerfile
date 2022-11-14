@@ -16,6 +16,7 @@ RUN apt-get update && \
     php-pgsql \
     php-pear \
     php-gd \
+    ca-certificates \
     && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
