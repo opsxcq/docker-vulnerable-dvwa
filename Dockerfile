@@ -16,11 +16,12 @@ RUN apt-get update && \
     php-pgsql \
     php-pear \
     php-gd \
+    ca-certificates \
     && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-COPY php.ini /etc/php5/apache2/php.ini
+COPY php.ini /etc/php/7.0/apache2/php.ini
 COPY dvwa /var/www/html
 
 COPY config.inc.php /var/www/html/config/
@@ -30,7 +31,7 @@ RUN chown www-data:www-data -R /var/www/html && \
 
 RUN service mysql start && \
     sleep 3 && \
-    mysql -uroot -pvulnerables -e "CREATE USER app@localhost IDENTIFIED BY 'vulnerables';CREATE DATABASE dvwa;GRANT ALL privileges ON dvwa.* TO 'app'@localhost;"
+    mysql -uroot -pvulnerables -e "CREATE USER app@localhost IDENTIFIED BY 'vulnerables';CREATE DATABASE dvwa;GRANT ALL privileges ON dvwa.* TO 'app'@localhost;GRANT FILE ON *.* TO 'app'@'localhost';"
 
 EXPOSE 80
 
