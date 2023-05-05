@@ -1,0 +1,23 @@
+name: ksoc-image-scan
+
+on:
+  pull_request:
+
+jobs:
+  ksoc-image-scan:
+    permissions:
+      # only required for workflows in private repositories
+      actions: read
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Local Container
+        uses: docker/build-push-action@v4
+        with:
+          tags: localbuild/testimage:latest
+          push: false
+          load: true
+      - name: KSOC Image Scan
+        uses: ksoclabs/image-scan-action@v0.0.4
+        with:
+          image: localbuild/testimage:latest
