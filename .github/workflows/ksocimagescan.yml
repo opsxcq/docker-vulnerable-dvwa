@@ -21,3 +21,4 @@ jobs:
         uses: ksoclabs/image-scan-action@v0.0.4
         with:
           image: localbuild/testimage:latest
+          fail_on_severity: critical
