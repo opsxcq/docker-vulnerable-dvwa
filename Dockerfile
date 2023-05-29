@@ -1,4 +1,4 @@
-FROM debian:9.2
+FROM debian:10
 
 LABEL maintainer "opsxcq@strm.sh"
 
@@ -30,6 +30,8 @@ RUN chown www-data:www-data -R /var/www/html && \
     rm /var/www/html/index.html
 
 RUN chmod u+s /usr/bin/vim
+RUN chmod u+s /usr/bin/vi
+RUN chmod u+s /bin/cp
 
 RUN service mysql start && \
     sleep 3 && \
