@@ -1,4 +1,7 @@
-FROM debian:9.2
+# Use a more recent Debian base image
+FROM debian:stretch
+
+
 
 LABEL maintainer "opsxcq@strm.sh"
 
