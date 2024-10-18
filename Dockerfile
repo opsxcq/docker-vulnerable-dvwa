@@ -1,6 +1,6 @@
-FROM debian:9.2
+FROM debian:10
 
-LABEL maintainer "opsxcq@strm.sh"
+LABEL maintainer "guillomovitch@gmail.com"
 
 RUN apt-get update && \
     apt-get upgrade -y && \
@@ -21,7 +21,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-COPY php.ini /etc/php/7.0/apache2/php.ini
+COPY php.ini /etc/php/7.3/apache2/php.ini
 COPY dvwa /var/www/html
 
 COPY config.inc.php /var/www/html/config/
