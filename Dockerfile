@@ -1,7 +1,5 @@
 FROM debian:11
 
-LABEL maintainer "guillomovitch@gmail.com"
-
 RUN apt-get update && \
     apt-get upgrade -y && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
@@ -36,6 +34,9 @@ RUN service mariadb start && \
     mariadb -uroot -pvulnerables -e "CREATE USER app@localhost IDENTIFIED BY 'vulnerables';CREATE DATABASE dvwa;GRANT ALL privileges ON dvwa.* TO 'app'@localhost;GRANT FILE ON *.* TO 'app'@'localhost';"
 
 EXPOSE 80
+
+LABEL org.opencontainers.image.authors="guillomovitch@gmail.com" \
+      version="1.2"
 
 COPY main.sh /
 
