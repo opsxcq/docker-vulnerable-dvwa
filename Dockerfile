@@ -10,6 +10,7 @@ RUN apt-get update && \
     echo mariadb-server mysql-server/root_password_again password vulnerables | debconf-set-selections && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     apache2 \
+    iputils-ping \
     mariadb-server \
     php \
     php-mysql \
