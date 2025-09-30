@@ -5,20 +5,20 @@ LABEL maintainer "guillomovitch@gmail.com"
 RUN apt-get update && \
     apt-get upgrade -y && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    debconf-utils && \
+	debconf-utils && \
     echo mariadb-server mysql-server/root_password password vulnerables | debconf-set-selections && \
     echo mariadb-server mysql-server/root_password_again password vulnerables | debconf-set-selections && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    apache2 \
-    iputils-ping \
-    mariadb-server \
-    php \
-    php-mysql \
-    php-pgsql \
-    php-pear \
-    php-gd \
-    ca-certificates \
-    && \
+	DEBIAN_FRONTEND=noninteractive apt-get install -y \
+	apache2 \
+	iputils-ping \
+	mariadb-server \
+	php \
+	php-mysql \
+	php-pgsql \
+	php-pear \
+	php-gd \
+	ca-certificates \
+	&& \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -38,4 +38,5 @@ RUN service mariadb start && \
 EXPOSE 80
 
 COPY main.sh /
+
 ENTRYPOINT ["/main.sh"]
